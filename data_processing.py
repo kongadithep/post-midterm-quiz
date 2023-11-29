@@ -100,3 +100,12 @@ class Table:
     def __str__(self):
         return self.table_name + ':' + str(self.table)
 
+my_table_3_survive_m = table1.filter(lambda x:x["Genre"] == "Comedy")
+print("average value of ‘Worldwide Gross",my_table_3_survive_m.aggregate(lambda x: sum(x)/len(x),'Worldwide Gross'))
+
+my_table_1_drama = table1.filter(lambda x:x["Genre"] == "Drama")
+print("Min Audience score:", my_table_1_drama.aggregate(lambda x: min(x), 'Audience score %'))
+
+my_table1_Fantasy = table1.filter(lambda x:x["Genre"] == "Fantasy")
+print(f"Count the number of ‘Fantasy’ movie : {len(my_table1_Fantasy.table)}")
+
