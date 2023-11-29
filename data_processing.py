@@ -100,6 +100,10 @@ class Table:
     def __str__(self):
         return self.table_name + ':' + str(self.table)
 
+table1 = Table('movies', movie)
+my_DB = DB()
+my_DB.insert(table1)
+
 my_table_3_survive_m = table1.filter(lambda x:x["Genre"] == "Comedy")
 print("average value of ‘Worldwide Gross",my_table_3_survive_m.aggregate(lambda x: sum(x)/len(x),'Worldwide Gross'))
 
